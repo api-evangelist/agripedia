@@ -1,0 +1,156 @@
+generated: '2026-09-13'
+method: probed
+source: >-
+  Direct HTTP probes of the named /.well-known/ paths on every host this record knows. Agripedia
+  publishes no API, so there are no baseURL or OpenAPI servers[] hosts to probe; the hosts below are
+  the corporate site (agripedia.co.jp, a Nuxt single-page app) and the three reachable application
+  hosts found in Certificate Transparency for agripedia.co.jp — connect (the company's internal SCM
+  app), kanri (the AP管理システム Rails app behind a Devise login), and material-sales (the public
+  agricultural-materials landing site). No host returned a document.
+note: >-
+  NOT A SINGLE HIT, so NO WellKnown and NO SecurityTxt pointer is emitted in apis.yml. Read the
+  statuses with the control rows: agripedia.co.jp and connect.agripedia.co.jp are single-page-app
+  catch-alls that answer HTTP 200 with the SAME byte-identical HTML shell for every path, including a
+  random control path, so each 200 recorded here is a MISS, not a document. kanri.agripedia.co.jp
+  answers 401 with a Japanese "please register or sign in" JSON/text body, or 302 to its sign-in page,
+  for every path — auth-gated, not served. material-sales.agripedia.co.jp returns real hard 404s. This
+  file records a measured absence, not a served surface.
+hosts:
+- host: agripedia.co.jp
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: null
+    note: HTML SPA shell, not a document (identical to the control path body)
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: null
+    note: HTML SPA shell, not a document
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: null
+    note: HTML SPA shell, not a document
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    file: null
+    note: HTML SPA shell, not a document
+  - path: /.well-known/api-catalog
+    status: 200
+    file: null
+    note: HTML SPA shell, not a document
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    file: null
+    note: HTML SPA shell, not a document
+  - path: /.well-known/agent-card.json
+    status: 200
+    file: null
+    note: HTML SPA shell, not a document
+  - path: /.well-known/agent.json
+    status: 200
+    file: null
+    note: HTML SPA shell, not a document
+- host: connect.agripedia.co.jp
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: null
+    note: 1766-byte SPA shell ("AgriPedia 社内向けSCMシステム"), not a document
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: null
+    note: 1766-byte SPA shell, not a document
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: null
+    note: 1766-byte SPA shell, not a document
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    file: null
+    note: 1766-byte SPA shell, not a document
+  - path: /.well-known/api-catalog
+    status: 200
+    file: null
+    note: 1766-byte SPA shell, not a document
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    file: null
+    note: 1766-byte SPA shell, not a document
+  - path: /.well-known/agent-card.json
+    status: 200
+    file: null
+    note: 1766-byte SPA shell, not a document
+  - path: /.well-known/agent.json
+    status: 200
+    file: null
+    note: 1766-byte SPA shell, not a document
+- host: kanri.agripedia.co.jp
+  documents:
+  - path: /.well-known/security.txt
+    status: 401
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 302
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 302
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 302
+    file: null
+  - path: /.well-known/api-catalog
+    status: 302
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 401
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 401
+    file: null
+  - path: /.well-known/agent.json
+    status: 401
+    file: null
+- host: material-sales.agripedia.co.jp
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+controls:
+- url: https://agripedia.co.jp/.well-known/zz-control-9f3a
+  status: 200
+  bytes: 10201
+  verdict: catch-all — every 200 on this host is a miss
+- url: https://connect.agripedia.co.jp/.well-known/zz-control-9f3a
+  status: 200
+  bytes: 1766
+  verdict: catch-all — every 200 on this host is a miss
+- url: https://kanri.agripedia.co.jp/.well-known/zz-control-9f3a
+  status: 302
+  bytes: 109
+  verdict: auth wall — redirects to /users/sign_in
+- url: https://material-sales.agripedia.co.jp/.well-known/zz-control-9f3a
+  status: 404
+  bytes: 9
+  verdict: true 404s — absences on this host are real
+checked: '2026-09-13'

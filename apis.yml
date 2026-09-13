@@ -1,8 +1,18 @@
 aid: agripedia
 name: Agripedia
-description: 'Agripedia is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Agripedia (アグリぺディア株式会社) is a Tokyo agricultural technology company, founded in June 2019 and
+  headquartered in Nishi-Gotanda, Shinagawa-ku, that connects mid- and large-scale Japanese farms and
+  production areas with food-service and food-manufacturing buyers. It supports growers from GAP
+  certification through to the sale of the certified produce, runs a B2B direct-sales channel for
+  GAP-certified commercial agricultural products, sells crop-protection materials and fertilizer, and
+  operates its own production management system for cultivation history and traceability. It holds JGAP
+  group certification (March 2023) and is a GAP partner of Japan's Ministry of Agriculture, Forestry and
+  Fisheries. Its software reaches farms, buyers and staff as closed, credentialed web applications; the
+  company publishes no developer program, no public API, and no machine-readable contract on any host it
+  operates.
 url: https://raw.githubusercontent.com/api-evangelist/agripedia/refs/heads/main/apis.yml
+image: https://storage.googleapis.com/production-os-assets/assets/b88741c2-9769-459d-8a72-ec63d33322a4
 x-type: company
 x-source: harvest:secondary-market
 x-tier: stub
@@ -12,6 +22,14 @@ created: '2026-09-13'
 modified: '2026-09-13'
 tags:
 - Company
+- Agriculture
+- AgTech
+- Farm Management
+- Food Supply Chain
+- Traceability
+- GAP Certification
+- B2B Marketplace
+- Japan
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -20,4 +38,63 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: https://equityzen.com/company/agripedia
+  url: https://agripedia.co.jp/
+- type: Newsroom
+  url: https://agripedia.co.jp/news
+- type: PrivacyPolicy
+  url: https://agripedia.co.jp/news/detail/privacy_policy
+- type: Blog
+  url: https://note.com/agripedia
+- type: BlogRSS
+  url: https://note.com/agripedia/rss
+- type: GitHubOrganization
+  url: https://github.com/AgriPedia
+- type: Careers
+  url: https://herp.careers/careers/companies/agripedia
+- type: SecondaryMarket
+  url: https://equityzen.com/company/agripedia/
+- type: DomainSecurity
+  url: security/agripedia-domain-security.yml
+- type: LLMsTxt
+  url: llms/agripedia-llms.txt
+x-enrichment:
+  date: '2026-09-13'
+  status: minimal
+  artifacts_added: 3
+  pass: local-v3
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    Agripedia ships software only as closed end-user applications: its corporate site is a two-route
+    Nuxt SPA (sitemap lists exactly / and /news) with no developer, docs, portal or integration link
+    anywhere, kanri.agripedia.co.jp (AP管理システム) answers every path with a 401 "please register or
+    sign in" body or a 302 to /users/sign_in, and connect.agripedia.co.jp calls itself "AgriPedia
+    社内向けSCMシステム" — an internal supply-chain tool — in its own meta description, so there is no
+    public API being marketed and nothing gated behind a sales form either.
+  evidence:
+  - url: https://agripedia.co.jp/
+    status: 200
+  - url: https://agripedia.co.jp/sitemap-static.xml
+    status: 200
+  - url: https://agripedia.co.jp/.well-known/zz-control-9f3a
+    status: 200
+  - url: https://material-sales.agripedia.co.jp/openapi.json
+    status: 404
+  - url: https://material-sales.agripedia.co.jp/graphql
+    status: 404
+  - url: https://material-sales.agripedia.co.jp/llms.txt
+    status: 404
+  - url: https://material-sales.agripedia.co.jp/.well-known/agent-card.json
+    status: 404
+  - url: https://material-sales.agripedia.co.jp/.well-known/api-catalog
+    status: 404
+  - url: https://kanri.agripedia.co.jp/openapi.json
+    status: 401
+  - url: https://kanri.agripedia.co.jp/api-docs
+    status: 302
+  - url: https://connect.agripedia.co.jp/openapi.json
+    status: 200
+  - url: https://registry.npmjs.org/agripedia
+    status: 404
+  checked: '2026-09-13'
