@@ -1,0 +1,21 @@
+{
+  "repo": "agripedia",
+  "feeds": [
+    {
+      "source": "https://agripedia.co.jp/news/detail/privacy_policy",
+      "feed_url": "https://agripedia.co.jp/news/detail/privacy_policy",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    },
+    {
+      "source": "https://note.com/agripedia",
+      "feed_url": "https://note.com/agripedia/rss",
+      "title": "",
+      "saved": 0,
+      "method": "discovered"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-09-19T20:17:39Z"
+}
