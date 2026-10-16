@@ -2,13 +2,6 @@
   "repo": "agripedia",
   "feeds": [
     {
-      "source": "https://agripedia.co.jp/news/detail/privacy_policy",
-      "feed_url": "https://agripedia.co.jp/news/detail/privacy_policy",
-      "title": "",
-      "saved": 0,
-      "method": "none"
-    },
-    {
       "source": "https://note.com/agripedia",
       "feed_url": "https://note.com/agripedia/rss",
       "title": "",
@@ -21,8 +14,15 @@
       "title": "",
       "saved": 0,
       "method": "feed"
+    },
+    {
+      "source": "https://agripedia.co.jp/news/detail/privacy_policy",
+      "feed_url": "https://agripedia.co.jp/news/detail/privacy_policy",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
   "post_count": 15,
-  "fetched": "2026-10-03T12:30:02Z"
+  "fetched": "2026-10-10T13:15:00Z"
 }
